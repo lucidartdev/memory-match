@@ -1,6 +1,6 @@
 'use client';
 import { createAppKit } from '@reown/appkit';
-import { ethersAdapter } from '@reown/appkit-adapter-ethers';
+import { EthersAdapter } from '@reown/appkit-adapter-ethers';
 
 export const projectId = process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID!;
 
@@ -13,14 +13,14 @@ export const metadata = {
 
 export const chains = [
   {
-    id: 84531, // Base Sepolia
-    name: "Base Sepolia",
+    id: 8453,
+    name: "Base Mainnet",
     rpcUrl: process.env.NEXT_PUBLIC_RPC_URL!
   }
 ];
 
 export const appKit = createAppKit({
-  adapters: [ethersAdapter()],
+  adapters: [new EthersAdapter()],
   metadata,
   projectId,
   networks: chains,
